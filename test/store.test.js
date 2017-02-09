@@ -24,4 +24,17 @@ describe('Store', function() {
       store.products[10]])).to.be.equal(99.22);
   });
 
+//Tests on duration
+  it('for DVD duration', function() {
+    expect(store.products[5].getDuration()).to.be.equal(',duration : 124 minutes');
+  });
+
+  it('for Book duration', function() {
+    expect(store.products[0].getDuration()).to.be.equal(',duration : between 80 minutes and 200 minutes');
+  });
+
+  it('for Videogame duration', function() {
+    expect(store.products[12].getDuration()).to.be.equal(',duration : between 300 minutes and 1800 minutes');
+  });
+
 });
