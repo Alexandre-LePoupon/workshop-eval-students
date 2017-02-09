@@ -38,6 +38,39 @@ function findProducts(belowCost) {
   return result;
 }
 
+
+function findProducts(criteria) {
+
+  var result = [];
+  var res = [];
+
+  if(criteria.belowCost) {
+    for (var i = products.length - 1; i >= 0; i--) {
+      var product = products[i];
+      if(product.price <= belowCost) {
+        result.push(product);
+      }
+    }
+  }
+
+  if(criteria.belowDuration) {
+    for (var i = result.length - 1; i >= 0; i--) {
+      var product = result[i];
+      if(product.runningTime) {
+        if(product.runningTime <= belowDuration) {
+          res.push(product);
+        }
+      } else if (product.maxDuration) {
+        if(product.maxDuration <= belowDuration) {
+          res.push(product);
+        }
+      }
+    }
+  }
+
+  return res;
+}
+
 function calculateTotalprice(products) {
   var sum = 0;
   for (var i = products.length - 1; i >= 0; i--) {

@@ -16,6 +16,11 @@ describe('Store', function() {
     expect(store.findProducts(20)).to.have.lengthOf(9);
   });
 
+  it('with criteria should return right products', function() {
+    var criteria = {belowCost: 20, belowDuration: 150};
+    expect(store.findProducts(criteria)).to.have.lengthOf(9);
+  });
+
   it('with asket should return right price', function() {
     expect(store.calculateTotalprice([
       store.products[3],
