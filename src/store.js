@@ -38,6 +38,7 @@ function calculateTotalprice(products) {
   for (var i = products.length - 1; i >= 0; i--) {
     sum += products[i].price;
   }
+  sum = Math.round(sum*100)/100;
   return sum;
 }
 
